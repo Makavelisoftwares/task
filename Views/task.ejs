@@ -7,9 +7,22 @@
     <title>Tasks</title>
 </head>
 <body>
+    <%if(tasks.length>0){%>
+        <%tasks.forEach(task=>{%>
+            <h2><%=task.task%> </h2>
+        <%})%>
+    <%}else{%>
+        <h2>No Tasks To display</h2>
+    <%}%>
 
 
-
+    <form action="/" method="POST">
+        <fieldset>
+            <legend>Task</legend>
+            <input name="task"type="text"placeholder="Enter Task here">
+        </fieldset>
+        <button>Add Task</button>
+    </form>
     
 </body>
 </html>

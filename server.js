@@ -31,15 +31,14 @@ app.get('/',(req,res)=>{
     .catch(err=>console.log(err));
 })
 
-app.post('/',async(req,res)=>{
-    const{task}=req.body;
-    try {
-        const newTask=await Task.create({task});
-        res.status(201).json(newTask);
-        
-    } catch (error) {
-        res.status(404).json({message:error.message});
-    }
+app.post('/',(req,res)=>{
+   const Newtask=new Task(req.body);
+   Newtask.save()
+   .then((result)=>{
+    res.redirect('/');
+    // res.status(201).json(result);
+   })
+   .catch(err=>console.log(err))
 })
 app.use((req,res)=>{
     res.send('404 page');

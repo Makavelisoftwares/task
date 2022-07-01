@@ -4,6 +4,11 @@ const taskSchema=new Schema({
     task:{
         type:String,
         required:true
+    },
+    date:{
+        type:Date,
+        required:true,
+        default:Date.now()
     }
 },{timestamps:true});
 
