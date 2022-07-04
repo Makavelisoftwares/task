@@ -5,24 +5,30 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tasks</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <%if(tasks.length>0){%>
-        <%tasks.forEach(task=>{%>
-            <h2><%=task.task%> </h2>
-        <%})%>
-    <%}else{%>
-        <h2>No Tasks To display</h2>
-    <%}%>
+    <div class="container">
+        <div class="task">
+            <%if(tasks.length>0){%>
+                <%tasks.forEach(task=>{%>
+                    <div class="single-task">
+                        <h2><%=task.task%> </h2>
+                    </div>
+                <%})%>
+            <%}else{%>
+                <h2>No Tasks To display</h2>
+            <%}%>
 
-
-    <form action="/" method="POST">
-        <fieldset>
-            <legend>Task</legend>
-            <input name="task"type="text"placeholder="Enter Task here">
-        </fieldset>
-        <button>Add Task</button>
-    </form>
-    
+        </div>   
+        <form action="/" method="POST">
+                <fieldset>
+                    <legend>Task</legend>
+                    <input name="task"type="text"placeholder="Enter Task here">
+                </fieldset>
+            
+            <button>Add Task</button>
+        </form>
+    </div>
 </body>
 </html>
